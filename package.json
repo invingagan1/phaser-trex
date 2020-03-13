@@ -1,0 +1,19 @@
+{
+  "name": "phaser-trex",
+  "version": "1.0.0",
+  "description": "it is t-rex runner. it is based in phaser game engine.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invingagan1/phaser-trex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/invingagan1/phaser-trex/issues"
+  },
+  "homepage": "https://github.com/invingagan1/phaser-trex#readme"
+}
