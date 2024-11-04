@@ -1,4 +1,8 @@
 import Phaser from 'phaser';
+import { images } from './../utils'
+import { backgroundColor, title } from '../constants';
+import { H1 } from '../components/ui';
+
 
 export default class PreloadScene extends Phaser.Scene {
   private loadingBar!: Phaser.GameObjects.Graphics;
@@ -9,7 +13,7 @@ export default class PreloadScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.cameras.main.setBackgroundColor(0x00FF00);
+    this.cameras.main.setBackgroundColor(backgroundColor);
 
     this.createLoadingBar();
 
@@ -26,11 +30,25 @@ export default class PreloadScene extends Phaser.Scene {
     });
 
     this.load.on('complete', () => {
-      // this.scene.start('MenuScene');
+      this.scene.start('MenuScene');
     });
 
     // Load assets here
+
+    Object.entries(images).forEach(([_, value]) => {
+      this.load.image(value, value);
+    });
+    // TODO: Enable this after adding audio files
+    // audios.forEach((value, key) => {
+    //   this.load.audio(key, value);
+    // });
+
     this.load.image('example', 'assets/example.png');
+
+    const { width, height } = this.cameras.main;
+
+    const titleComponent = new H1(this, width / 2, height / 2 - 100, title);
+    this.add.existing(titleComponent).setOrigin(0.5, 0.5);
   }
 
   private createLoadingBar(): void {
@@ -44,11 +62,11 @@ export default class PreloadScene extends Phaser.Scene {
 
     const loadingText = this.make.text({
       x: width / 2,
-      y: height / 2 - 50,
+      y: height / 2 + 50,
       text: 'Loading...',
       style: {
         font: '20px monospace',
-        
+
       }
     });
     loadingText.setOrigin(0.5, 0.5);

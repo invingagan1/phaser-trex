@@ -1,11 +1,6 @@
-export const images = new Map<string, string>([
-  ['background', 'assets/images/background.png'],
-  ['player', 'assets/images/player.png'],
-  ['enemy', 'assets/images/enemy.png']
-]);
-
-export const audios = new Map<string, string>([
-  ['backgroundMusic', 'assets/audios/background.mp3'],
-  ['jump', 'assets/audios/jump.wav'],
-  ['gameOver', 'assets/audios/gameOver.wav']
-]);
+export const images = {
+  background: 'assets/background.png',
+}
+export const audio = {
+  bgm: 'assets/bgm.mp3',
+}
