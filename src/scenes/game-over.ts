@@ -15,7 +15,7 @@ export default class GameOverScene extends Phaser.Scene {
       this.cameras.main.centerX,
       this.cameras.main.centerY,
       'Game Over',
-      { fontSize: '64px', fill: '#fff' }
+      { fontSize: '64px'}
     );
     gameOverText.setOrigin(0.5);
 
@@ -24,13 +24,13 @@ export default class GameOverScene extends Phaser.Scene {
       this.cameras.main.centerX,
       this.cameras.main.centerY + 100,
       'Press SPACE to Restart',
-      { fontSize: '32px', fill: '#fff' }
+      { fontSize: '32px'}
     );
     restartText.setOrigin(0.5);
 
     // Add input listener for restarting the game
-    this.input.keyboard.on('keydown-SPACE', () => {
-      this.scene.start('GameScene'); // Replace 'GameScene' with your main game scene key
-    });
+    // this.input.keyboard.on('keydown-SPACE', () => {
+    //   this.scene.start('GameScene'); // Replace 'GameScene' with your main game scene key
+    // });
   }
 }

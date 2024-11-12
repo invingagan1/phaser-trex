@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { images } from './../utils'
+import { images, spriteSheetFrames, spriteSheetImages, spriteSheets } from './../utils'
 import { backgroundColor, title } from '../constants';
 import { H1 } from '../components/ui';
 
@@ -35,15 +35,10 @@ export default class PreloadScene extends Phaser.Scene {
 
     // Load assets here
 
-    Object.entries(images).forEach(([_, value]) => {
-      this.load.image(value, value);
+    Object.entries(spriteSheets).forEach(([key, value]) => {
+      const { frameWidth, frameHeight } = spriteSheetFrames[value];
+      this.load.spritesheet(value, spriteSheetImages[value], { frameWidth, frameHeight });
     });
-    // TODO: Enable this after adding audio files
-    // audios.forEach((value, key) => {
-    //   this.load.audio(key, value);
-    // });
-
-    this.load.image('example', 'assets/example.png');
 
     const { width, height } = this.cameras.main;
 
